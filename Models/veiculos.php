@@ -3,7 +3,7 @@
 Class veiculos{
 
     public function buscarListaVeiculos(){
-        $sql = "SELECT * FROM usuarios";
+        $sql = "SELECT * FROM veiculos";
         $res = db::runSql($sql)['dados'];
 
         return $res;

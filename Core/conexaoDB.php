@@ -23,11 +23,14 @@ class db
         }
 
         $response = self::$instancia->query($sql);
-
-        while ($row = $response->fetch_array(MYSQLI_ASSOC)) {
-            $dataResponse[] = $row;
+        $numRows = mysqli_num_rows($response);
+        $dataResponse=[];
+        
+        if($numRows > 0){
+            while ($row = $response->fetch_array(MYSQLI_ASSOC)) {
+                $dataResponse[] = $row;
+            }
         }
-
         $numRows = mysqli_num_rows($response);
 
         $data['numRows'] = $numRows;
