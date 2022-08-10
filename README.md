@@ -1,97 +1,78 @@
-<p align="center"><a href="https://symfony.com" target="_blank">
-    <img src="https://symfony.com/logos/symfony_black_02.svg">
-</a></p>
+# Big Game Survey 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE) 
 
-[Symfony][1] is a **PHP framework** for web and console applications and a set
-of reusable **PHP components**. Symfony is used by thousands of web
-applications and most of the [popular PHP projects][2].
+# Sobre o projeto
 
-Installation
-------------
+https://wmazoni-sds1.netlify.app
 
-* [Install Symfony][4] with Composer (see [requirements details][3]).
-* Symfony follows the [semantic versioning][5] strictly, publishes "Long Term
-  Support" (LTS) versions and has a [release process][6] that is predictable and
-  business-friendly.
+Big Game Survey é uma aplicação full stack web e mobile construída durante a 1ª edição da **Semana DevSuperior** (#sds1), evento organizado pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
 
-Sponsor
--------
+A aplicação consiste em uma pesquisa de preferência de games, onde os dados são coletados no app mobile, e depois são listados no app web, que também apresenta um dashboard com gráficos baseados nestes dados.
 
-Symfony 6.2 is [backed][27] by [Les-Tilleuls.coop][28] and [Sulu][29].
+## Layout mobile
+![Mobile 1](https://github.com/acenelio/assets/raw/main/sds1/mobile1.png) ![Mobile 2](https://github.com/acenelio/assets/raw/main/sds1/mobile2.png)
 
-**Les-Tilleuls.coop** is a team of 50+ Symfony experts who can help you design,
-develop and fix your projects. We provide a wide range of professional services
-including development, consulting, coaching, training and audits. We also are
-highly skilled in JS, Go and DevOps. We are a worker cooperative!
+## Layout web
+![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
 
-**Sulu** is the CMS for Symfony developers. It provides pre-built content-management
-features while giving developers the freedom to build, deploy, and maintain
-custom solutions using full-stack Symfony. Sulu is ideal for creating complex
-websites, integrating external tools, and building custom-built solutions.
+![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
 
-Help Symfony by [sponsoring][30] its development!
+## Modelo conceitual
+![Modelo Conceitual](https://github.com/acenelio/assets/raw/main/sds1/modelo-conceitual.png)
 
-Documentation
--------------
+# Tecnologias utilizadas
+## Back end
+- Java
+- Spring Boot
+- JPA / Hibernate
+- Maven
+## Front end
+- HTML / CSS / JS / TypeScript
+- ReactJS
+- React Native
+- Apex Charts
+- Expo
+## Implantação em produção
+- Back end: Heroku
+- Front end web: Netlify
+- Banco de dados: Postgresql
 
-* Read the [Getting Started guide][7] if you are new to Symfony.
-* Try the [Symfony Demo application][23] to learn Symfony in practice.
-* Discover Symfony ecosystem in detail with [Symfony The Fast Track][26].
-* Master Symfony with the [Guides and Tutorials][8], the [Components docs][9]
-  and the [Best Practices][10] reference.
+# Como executar o projeto
 
-Community
----------
+## Back end
+Pré-requisitos: Java 11
 
-* [Join the Symfony Community][11] and meet other members at the [Symfony events][12].
-* [Get Symfony support][13] on Stack Overflow, Slack, IRC, etc.
-* Follow us on [GitHub][14], [Twitter][15] and [Facebook][16].
-* Read our [Code of Conduct][24] and meet the [CARE Team][25].
+```bash
+# clonar repositório
+git clone https://github.com/devsuperior/sds1-wmazoni
 
-Contributing
-------------
+# entrar na pasta do projeto back end
+cd backend
 
-Symfony is an Open Source, community-driven project with thousands of
-[contributors][19]. Join them [contributing code][17] or [contributing documentation][18].
+# executar o projeto
+./mvnw spring-boot:run
+```
 
-Security Issues
----------------
+## Front end web
+Pré-requisitos: npm / yarn
 
-If you discover a security vulnerability within Symfony, please follow our
-[disclosure procedure][20].
+```bash
+# clonar repositório
+git clone https://github.com/devsuperior/sds1-wmazoni
 
-About Us
---------
+# entrar na pasta do projeto front end web
+cd front-web
 
-Symfony development is led by the [Symfony Core Team][22]
-and supported by [Symfony contributors][19].
+# instalar dependências
+yarn install
 
-[1]: https://symfony.com
-[2]: https://symfony.com/projects
-[3]: https://symfony.com/doc/current/reference/requirements.html
-[4]: https://symfony.com/doc/current/setup.html
-[5]: https://semver.org
-[6]: https://symfony.com/doc/current/contributing/community/releases.html
-[7]: https://symfony.com/doc/current/page_creation.html
-[8]: https://symfony.com/doc/current/index.html
-[9]: https://symfony.com/doc/current/components/index.html
-[10]: https://symfony.com/doc/current/best_practices/index.html
-[11]: https://symfony.com/community
-[12]: https://symfony.com/events/
-[13]: https://symfony.com/support
-[14]: https://github.com/symfony
-[15]: https://twitter.com/symfony
-[16]: https://www.facebook.com/SymfonyFramework/
-[17]: https://symfony.com/doc/current/contributing/code/index.html
-[18]: https://symfony.com/doc/current/contributing/documentation/index.html
-[19]: https://symfony.com/contributors
-[20]: https://symfony.com/security
-[22]: https://symfony.com/doc/current/contributing/code/core_team.html
-[23]: https://github.com/symfony/symfony-demo
-[24]: https://symfony.com/coc
-[25]: https://symfony.com/doc/current/contributing/code_of_conduct/care_team.html
-[26]: https://symfony.com/book
-[27]: https://symfony.com/backers
-[28]: https://les-tilleuls.coop/
-[29]: https://sulu.io/
-[30]: https://symfony.com/sponsor
+# executar o projeto
+yarn start
+```
+
+# Autor
+
+Wellington Mazoni de Andrade
+
+https://www.linkedin.com/in/wmazoni
+
