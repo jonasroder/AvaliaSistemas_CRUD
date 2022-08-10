@@ -10,24 +10,24 @@
 				<div class="modal-body">					
 					<div class="form-group">
 						<label>nome</label>
-						<input name="_1_d_veiculos_nome"  type="text" class="form-control" required>
+						<input name="_1_u_veiculos_nome"  type="text" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>marca</label>
-						<input name="_1_d_veiculos_marca"  type="text" class="form-control" required>
+						<input name="_1_u_veiculos_marca"  type="text" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>ano</label>
-						<input name="_1_d_veiculos_ano"  class="form-control" type="number" required></input>
+						<input name="_1_u_veiculos_ano"  class="form-control" type="number" required></input>
 					</div>
 					<div class="form-group">
 						<label>valor de venda</label>
-						<input name="_1_d_veiculos_valorvenda"  class="form-control" type="number" value=""></input>
+						<input name="_1_u_veiculos_valorvenda"  class="form-control" type="number" value=""></input>
 					</div>					
 				</div>
 				<div class="modal-footer">
 					
-					<input name="_1_d_veiculos_idveiculos"  class="form-control" type="hidden" value="4"></input>
+					<input name="_1_u_veiculos_idveiculos"  class="form-control" type="hidden" value="2"></input>
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 					<input type="submit" class="btn btn-success" onclick="post()" value="adicionar">
 				</div>
@@ -93,3 +93,7 @@
 </div>
 </body>
 </html>
+
+<script>
+	let jsonDados = <?= $dadosModel ?>
+</script>

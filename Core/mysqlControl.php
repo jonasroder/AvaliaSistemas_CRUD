@@ -12,17 +12,20 @@ foreach ($dadosformulario as $key => $input) {
 	$ACAO           = $dados[2];
 	$TABELA[$BLOCO] = $dados[3];
 
-	if ($COLPKTABELA[$BLOCO] != $dados[3]) {
+	//Pega a Coluna PK;
+	if ($COLPKTABELA[$BLOCO] != $dados[4] && empty($COLPKTABELA[$BLOCO])) {
 		$d = new db();
-		$pk = $d->verificarColunasdaTabela($dados[3]);
-		$COLPKTABELA[$BLOCO] = $pk;
+		$ColunaPK = $d->verificarColunasdaTabela($dados[3]);
+		$COLPKTABELA[$BLOCO] = $ColunaPK;
+	}
 
-		if ($pk == $dados[4]) {
-			$IDPKTABELA[$BLOCO] = $input;
-		}
+	//Pega o valor da coluna Pk enviado por Post;
+	if ($ColunaPK == $dados[4]) {
+		$IDPKTABELA[$BLOCO] = $input;
 	}
 
 
+	//monta array de inserts com dados enviados por post;
 	if ($ACAO == "i") {
 		$sql_colunas[$BLOCO] .= $VIRGULA[$BLOCO] . $dados[4];
 		$sql_valores[$BLOCO] .= $VIRGULA[$BLOCO] . "'" . addslashes($input) . "'";

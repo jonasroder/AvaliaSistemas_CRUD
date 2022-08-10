@@ -25,17 +25,22 @@ class db
         $response = self::$instancia->query($sql);
 
         if ($response) {
-            $numRows = mysqli_num_rows($response);
-            $dataResponse = [];
 
-            if ($numRows > 0) {
-                while ($row = $response->fetch_array(MYSQLI_ASSOC)) {
-                    $dataResponse[] = $row;
+            if ($response->num_rows >= 1) {
+                
+                $numRows = mysqli_num_rows($response);
+                $dataResponse = [];
+
+                if ($numRows > 0) {
+                    while ($row = $response->fetch_array(MYSQLI_ASSOC)) {
+                        $dataResponse[] = $row;
+                    }                    
                 }
+
+                $data['dados'] = $dataResponse;
+                $data['numRows'] = $numRows;
             }
 
-            $data['numRows'] = $numRows;
-            $data['dados'] = $dataResponse;
             $data['sql'] = $sql;
             $data['error'] = self::$error;
 
@@ -46,10 +51,11 @@ class db
     }
 
 
-    public function verificarColunasdaTabela($tabela){
+    public function verificarColunasdaTabela($tabela)
+    {
         $sql = "SELECT COLUMN_NAME
         FROM INFORMATION_SCHEMA. COLUMNS
-        WHERE TABLE_SCHEMA = '".self::$database."'
+        WHERE TABLE_SCHEMA = '" . self::$database . "'
         AND TABLE_NAME = 'veiculos'
         AND COLUMN_KEY = 'PRI'";
         $res = db::runSql($sql)['dados'][0]['COLUMN_NAME'];
