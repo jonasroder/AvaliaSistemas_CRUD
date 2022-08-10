@@ -1,5 +1,4 @@
 <?php
-
 require_once 'conexaoDB.php';
 
 class Controller extends db

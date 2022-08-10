@@ -10,6 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="Controllers/postController.js"></script>
+
 </head>
 
 <body>
@@ -27,39 +29,3 @@
 
 
 
-<script>
-    function db() {
-        const arrayInputs = document.querySelectorAll('[name]');
-        const dados = {};
-
-
-        for (const input of arrayInputs) {
-
-            let value = input.value;
-            let name = input.name;
-
-            let checkName = name.split('_');
-            let acao = checkName[2];
-
-            if (checkName.length === 5 && (acao == 'u' || acao == 'i')) {
-                dados[name] = value;
-
-            } else {
-                console.log(`Nome de Input ${name} esta fora dos parametros e não será enviado!`)
-            }
-
-        }
-
-        console.log(`dados enviados por post: `);
-        console.log(dados);
-
-        $.ajax({
-            url: "Core/mysqlControl.php",
-            data: dados
-
-        }).done(function() {
-            alert('enviado')
-        });
-
-    }
-</script>
