@@ -53,12 +53,8 @@ class db
 
     public function verificarColunasdaTabela($tabela)
     {
-        $sql = "SELECT COLUMN_NAME
-        FROM INFORMATION_SCHEMA. COLUMNS
-        WHERE TABLE_SCHEMA = '" . self::$database . "'
-        AND TABLE_NAME = 'veiculos'
-        AND COLUMN_KEY = 'PRI'";
-        $res = db::runSql($sql)['dados'][0]['COLUMN_NAME'];
+        $sql = "desc  " .$tabela . "";
+        $res = db::runSql($sql)['dados'];
         return $res;
     }
 }

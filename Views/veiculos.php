@@ -2,8 +2,8 @@
 
 <!-- Edit Modal HTML -->
 
-			
-				<div class="modal-header">						
+		<div id="corpoDocumento">
+			<div class="modal-header">						
 					<h4 class="modal-title">add veiculo</h4>
 					<buttontype="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</buttontype=>
 				</div>
@@ -12,7 +12,7 @@
 						<label>nome</label>
 						<input name="_1_u_veiculos_nome"  type="text" class="form-control" required>
 					</div>
-					<div class="form-group">
+					<div class="form-group teste">
 						<label>marca</label>
 						<input name="_1_u_veiculos_marca"  type="text" class="form-control" required>
 					</div>
@@ -31,6 +31,8 @@
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 					<input type="submit" class="btn btn-success" onclick="post()" value="adicionar">
 				</div>
+			</div>
+
 			
 	
 

@@ -11,17 +11,41 @@ foreach ($dadosformulario as $key => $input) {
 	$BLOCO          = $dados[1];
 	$ACAO           = $dados[2];
 	$TABELA[$BLOCO] = $dados[3];
+	$tipoDadosIntMysql = ['int', 'decimal', 'bigint', 'mediumint', 'smallint', 'tinyint', 'double'];
 
 	//Pega a Coluna PK;
-	if ($COLPKTABELA[$BLOCO] != $dados[4] && empty($COLPKTABELA[$BLOCO])) {
+	if (empty($COLPKTABELA[$BLOCO])) {
 		$d = new db();
-		$ColunaPK = $d->verificarColunasdaTabela($dados[3]);
+		$tableColuns = $d->verificarColunasdaTabela($dados[3]);
+
+		foreach ($tableColuns as $k => $value) {
+
+			$datatype[$BLOCO][$value['Field']] = $value['Type'];
+
+			if ($value['Key'] == "PRI") {
+				$ColunaPK = $value['Field'];
+			}
+		}
 		$COLPKTABELA[$BLOCO] = $ColunaPK;
 	}
 
 	//Pega o valor da coluna Pk enviado por Post;
 	if ($ColunaPK == $dados[4]) {
 		$IDPKTABELA[$BLOCO] = $input;
+	}
+
+	if (in_array($datatype[$BLOCO][$dados[4]], $tipoDadosIntMysql)) {
+		$aspas = "";
+		//se o post do campo estiver vazio define null
+		empty($input) ? $input = 'null' : '';
+	} else {
+		$aspas = "'";
+
+		//se o post do campo estiver vazio define null
+		if(empty($input)){
+			$input = 'null';
+			$aspas = "";
+		}
 	}
 
 
@@ -35,7 +59,7 @@ foreach ($dadosformulario as $key => $input) {
 
 	if ($ACAO == "u") {
 		$sqlupd_planilha[$BLOCO] = $dados[3];
-		$SQLUPDATE[$BLOCO] .= $VIRGULA[$BLOCO] . " " . $dados[4] . "='" . addslashes($input) . "'";
+		$SQLUPDATE[$BLOCO] .= $VIRGULA[$BLOCO] . " " . $dados[4] . "=" . $aspas . addslashes($input) . $aspas . " ";
 		$update = true;
 	}
 
@@ -69,22 +93,3 @@ if ($inserir) {
 }
 
 
-
-//Faz Upload da Imagem
-if (!empty($_FILES)) {
-	$file_extension = explode('/', $_FILES['img']['type']);
-	$file_extension = strtolower(end($file_extension));
-	$accepted_formate = array('jpeg', 'jpg', 'png');
-
-	if (in_array($file_extension, $accepted_formate)) {
-		echo "This is jpeg/jpg/png file";
-	} else {
-		echo $file_extension . 'Formato de imagem não suportado!!';
-	}
-};
-
-
-unset($inserir);
-unset($update);
-unset($_POST);
-unset($_FILES);
