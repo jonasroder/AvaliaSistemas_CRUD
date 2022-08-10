@@ -1,6 +1,16 @@
-function post() {
+function post(imparam = {
+	seletor: [],
+	dados :{}
+}) {
 
-	let dados = preparaDadosParaPost();
+	debugger
+	let seletor = imparam.seletor;
+	let dados = {};
+	if (imparam.dados.length == 0) {
+		dados = preparaDadosParaPost(seletor);
+	} else {
+		dados = imparam.dados;
+	}
 
 	$.ajax({
 		url: "Core/mysqlControl.php",
@@ -12,15 +22,14 @@ function post() {
 }
 
 
-function preparaDadosParaPost(Elemento = []) {
-debugger
-	let arrayInputs = Elemento;
-	
-	//verifica se foi enviado um Seletor para preparar os inputs, caso contrario ele pegara todos os inputs da tela;
-	arrayInputs.length == 0 ? arrayInputs = $('[name]') : arrayInputs = $(arrayInputs).find('[name]');
-	
+function preparaDadosParaPost(elemento = []) {
+
+	let seletor = elemento;
 	const dados = {};
 
+	//verifica se foi enviado um elemento Pai para preparar os inputs, caso contrario ele pegara todos os inputs da tela;
+	seletor.length == 0 ? arrayInputs = $('[name]') : arrayInputs = $(seletor).find('[name]');
+		
 	for (const input of arrayInputs) {
 		let value = input.value;
 		let name = input.name;

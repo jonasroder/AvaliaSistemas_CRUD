@@ -8,9 +8,11 @@ $dadosformulario = $_POST;
 foreach ($dadosformulario as $key => $input) {
 
 	$dados = (explode('_', $key));
-	$BLOCO          = $dados[1];
-	$ACAO           = $dados[2];
-	$TABELA[$BLOCO] = $dados[3];
+	$BLOCO          = $dados[1]; //indice de tabelas enviadas
+	$ACAO           = $dados[2]; //ação 
+	$TABELA[$BLOCO] = $dados[3]; //tabela
+
+	//Tipos de dataType SQL que precisam ser tratados antes do insert ou update
 	$tipoDadosIntMysql = ['int', 'decimal', 'bigint', 'mediumint', 'smallint', 'tinyint', 'double'];
 
 	//Pega a Coluna PK;
@@ -34,6 +36,7 @@ foreach ($dadosformulario as $key => $input) {
 		$IDPKTABELA[$BLOCO] = $input;
 	}
 
+	//Trata os dados enviaos e compara com o datatype;
 	if (in_array($datatype[$BLOCO][$dados[4]], $tipoDadosIntMysql)) {
 		$aspas = "";
 		//se o post do campo estiver vazio define null
@@ -57,12 +60,14 @@ foreach ($dadosformulario as $key => $input) {
 		$inserir = true;
 	}
 
+	//Monta o array com os dados de update enviados por post
 	if ($ACAO == "u") {
 		$sqlupd_planilha[$BLOCO] = $dados[3];
 		$SQLUPDATE[$BLOCO] .= $VIRGULA[$BLOCO] . " " . $dados[4] . "=" . $aspas . addslashes($input) . $aspas . " ";
 		$update = true;
 	}
 
+	//executa o delete
 	if ($ACAO == "d") {
 		if (!empty($IDPKTABELA[$BLOCO])) {
 			$SQLDELETE = "DELETE FROM " . $dados[3] . " WHERE  " . $COLPKTABELA[$BLOCO] . " = " . addslashes($IDPKTABELA[$BLOCO]) . " ";

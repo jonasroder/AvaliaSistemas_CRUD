@@ -4,13 +4,10 @@ Class veiculosController extends Controller{
 
     public function index(){
 
-        $n= new veiculos();
-        $resultadoVeiculos = $n -> buscarListaVeiculos();
-        $dados = json_encode($resultadoVeiculos);
+        $veiculosModel= new veiculos();
+        $veiculos = json_encode($veiculosModel->findAll());
 
-        $acao = "u"; //update
-
-        $this->carregarTemplate('veiculos', $acao, $dados);
+        $this->carregarTemplate('veiculos', $veiculos);
     }
 
 }

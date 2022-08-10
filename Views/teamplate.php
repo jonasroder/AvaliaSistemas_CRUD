@@ -17,7 +17,7 @@
 <body>
     <!-- CABEÇALHOS -->
     <?php
-    $this->carregarViewNoTeamplate($nomeView, $acao, $dadosModel);
+    $this->carregarViewNoTeamplate($nomeView, $dadosModel);
     ?>
 
 

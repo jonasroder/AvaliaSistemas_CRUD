@@ -28,17 +28,8 @@ class db
 
             if ($response->num_rows >= 1) {
                 
-                $numRows = mysqli_num_rows($response);
-                $dataResponse = [];
-
-                if ($numRows > 0) {
-                    while ($row = $response->fetch_array(MYSQLI_ASSOC)) {
-                        $dataResponse[] = $row;
-                    }                    
-                }
-
-                $data['dados'] = $dataResponse;
-                $data['numRows'] = $numRows;
+                $data['dados'] = $response->fetch_all(MYSQLI_ASSOC);
+                $data['numRows'] = $response->num_rows;
             }
 
             $data['sql'] = $sql;

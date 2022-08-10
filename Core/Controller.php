@@ -10,13 +10,13 @@ class Controller extends db
         $this->dados = array();
     }
 
-    public function carregarTemplate($nomeView, $acao, $dadosModel = array())
+    public function carregarTemplate($nomeView, $dadosModel = array())
     {
         $this->dados = $dadosModel;
         require_once 'Views/teamplate.php';
     }
 
-    public function carregarViewNoTeamplate($nomeView, $acao, $dadosModel = array())
+    public function carregarViewNoTeamplate($nomeView, $dadosModel = array())
     {
         $this->dados = $dadosModel;
         require_once 'Views/'.$nomeView.'.php';

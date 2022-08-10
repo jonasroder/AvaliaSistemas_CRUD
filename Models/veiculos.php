@@ -2,7 +2,7 @@
 
 Class veiculos{
 
-    public function buscarListaVeiculos(){
+    public function findAll(){
         $sql = "SELECT * FROM veiculos";
         $res = db::runSql($sql)['dados'];
 
