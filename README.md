@@ -39,8 +39,9 @@ Esta aplicação foi desenvolida como parte do processo seleteivo para a vaga de
 - 4: nome da coluna da tabela;
  ##### É obrigatório o envio do valor da coluna PK da tabela para os casos de update e delete;
  
- -O Envio de dados para o backEnd poderá ser feito pelo método post
- ![post](https://user-images.githubusercontent.com/81712575/184044769-5763c748-8c48-4c67-b539-744b5c982416.jpg)
+- O Envio de dados para o backEnd poderá ser feito pelo método post
+
+![post](https://user-images.githubusercontent.com/81712575/184044769-5763c748-8c48-4c67-b539-744b5c982416.jpg)
 - Em parametro, o método post poderá receber um objeto com 2 atributos. Se nenhum parametro for informado, ele irá enviar todos os inputs da página que sigam a regra a cima citado.
 - O atributo seletor, pode receber um seletor, para que seja enviado somente os dados de dentro do html desejado.
 - O atributo dados recebe um objeto com atributos a serem enviados separadamente;
