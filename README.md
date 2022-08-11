@@ -41,9 +41,9 @@ Esta aplicação foi desenvolida como parte do processo seleteivo para a vaga de
  
  -O Envio de dados para o backEnd poderá ser feito pelo método post
  ![post](https://user-images.githubusercontent.com/81712575/184044769-5763c748-8c48-4c67-b539-744b5c982416.jpg)
--Em parametro, o método post poderá receber um objeto com 2 atributos. Se nenhum parametro for informado, ele irá enviar todos os inputs da página que sigam a regra a cima citado.
--O atributo seletor, pode receber um seletor, para que seja enviado somente os dados de dentro do html desejado.
--O atributo dados recebe um objeto com atributos a serem enviados separadamente;
+- Em parametro, o método post poderá receber um objeto com 2 atributos. Se nenhum parametro for informado, ele irá enviar todos os inputs da página que sigam a regra a cima citado.
+- O atributo seletor, pode receber um seletor, para que seja enviado somente os dados de dentro do html desejado.
+- O atributo dados recebe um objeto com atributos a serem enviados separadamente;
 ![post delete](https://user-images.githubusercontent.com/81712575/184045675-1d59d38f-ae69-4e4a-bde0-97e9483df36c.jpg)
 
 
